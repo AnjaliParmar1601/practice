@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import {BrowserRouter , Route , Routes} from "react-router-dom";
+import Home from "../src/components/Home";
+import Error from "../src/components/Error";
+import Result from '../src/components/Result';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "../src/components/Result"
+import Crud from './components/Crud';
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+  <Routes>
+  <Route path="/" element={<Crud />} />
+   <Route path="/error" element={<Error />} />
+   <Route path="/result" element={<Result />} />
+   <Route path="/crud" element={<Crud />} />
+  </Routes>
+  </BrowserRouter>
+  )
 }
-
-export default App;
